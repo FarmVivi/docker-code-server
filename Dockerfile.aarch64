@@ -38,6 +38,8 @@ RUN \
     nodejs \
     sudo \
     yarn && \
+  echo "**** install docker client ****" && \
+  apt-get install -y docker.io && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://registry.yarnpkg.com/code-server \
