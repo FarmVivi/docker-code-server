@@ -40,6 +40,12 @@ RUN \
     yarn && \
   echo "**** install docker client ****" && \
   apt-get install -y docker.io && \
+  echo "**** install jdk 17 ****" && \
+  apt-get install -y openjdk-17-jdk && \
+  echo "**** install maven ****" && \
+  apt-get install -y maven && \
+  echo "**** install gradle ****" && \
+  apt-get install -y gradle && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://registry.yarnpkg.com/code-server \
