@@ -37,8 +37,12 @@ RUN \
   echo "**** install jdk 17 ****" && \
   apt-get install -y openjdk-17-jdk && \
   echo "**** install maven ****" && \
-  mkdir /opt/maven && \
-  curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz | tar zx --strip-components=1 -C /opt/maven && \
+  mkdir -p /opt/maven && \
+  curl -o \
+    /tmp/apache-maven-bin.tar.gz -L \
+    "https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz" && \
+  tar xf /tmp/apache-maven-bin.tar.gz -C \
+    /opt/maven --strip-components=1 && \
   export MAVEN_HOME=/opt/maven && \
   export M2_HOME=/opt/maven && \
   export M2=/opt/maven/bin && \
