@@ -37,7 +37,12 @@ RUN \
   echo "**** install jdk 17 ****" && \
   apt-get install -y openjdk-17-jdk && \
   echo "**** install maven ****" && \
-  apt-get install -y maven && \
+  mkdir /opt/maven && \
+  curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz | tar zx --strip-components=1 -C /opt/maven && \
+  export MAVEN_HOME=/opt/maven && \
+  export M2_HOME=/opt/maven && \
+  export M2=/opt/maven/bin && \
+  export PATH=/opt/maven/bin:$PATH && \
   echo "**** install gradle ****" && \
   apt-get install -y gradle && \
   echo "**** install code-server ****" && \
