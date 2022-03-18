@@ -9,6 +9,9 @@ LABEL maintainer="aptalca"
 
 # environment settings
 ENV HOME="/config"
+# maven environment settings
+ENV PATH="/opt/maven/bin:${PATH}"
+ENV MAVEN_HOME="/opt/maven"
 
 RUN \
   echo "**** install node repo ****" && \
@@ -43,8 +46,6 @@ RUN \
     "https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz" && \
   tar xf /tmp/apache-maven-bin.tar.gz -C \
     /opt/maven --strip-components=1 && \
-  export MAVEN_HOME=/opt/maven && \
-  export PATH=/opt/maven/bin:$PATH && \
   echo "**** install gradle ****" && \
   apt-get install -y gradle && \
   echo "**** install code-server ****" && \
