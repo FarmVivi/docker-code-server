@@ -40,8 +40,6 @@ RUN \
   tar xf /tmp/apache-maven-bin.tar.gz -C \
     /opt/maven --strip-components=1 && \
   export MAVEN_HOME=/opt/maven && \
-  export M2_HOME=/opt/maven && \
-  export M2=/opt/maven/bin && \
   export PATH=/opt/maven/bin:$PATH && \
   echo "**** install gradle ****" && \
   apt-get install -y gradle && \
