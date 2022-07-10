@@ -31,10 +31,6 @@ RUN \
     nano \
     net-tools \
     sudo && \
-  echo "**** install devspace client ****" && \
-  curl -s -L "https://github.com/loft-sh/devspace/releases/latest" | sed -nE 's!.*"([^"]*devspace-linux-amd64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o devspace && \
-  chmod +x devspace && \
-  install devspace /usr/local/bin && \
   echo "**** install docker client ****" && \
   apt-get install -y docker.io && \
   echo "**** install jdk 17 ****" && \
