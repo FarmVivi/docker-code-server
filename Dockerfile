@@ -17,7 +17,7 @@ ENV MAVEN_HOME="/opt/maven"
 RUN \
   echo "**** install runtime dependencies ****" && \
   apt-get update && \
-  apt-get install -y --no-install-recommends \
+  apt-get install -y \
     git \
     jq \
     libatomic1 \
