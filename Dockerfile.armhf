@@ -42,7 +42,9 @@ RUN \
   apt-get install -y software-properties-common && \
   add-apt-repository -y ppa:ondrej/php && \
   apt-get update && \
-  apt-get install -y php8.1 libapache2-mod-php8.1 && \
+  apt-get install -y php8.2 libapache2-mod-php8.2 && \
+  echo "**** install composer ****" && \
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
