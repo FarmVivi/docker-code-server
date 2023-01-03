@@ -13,6 +13,8 @@ ENV HOME="/config"
 # maven environment settings
 ENV PATH="/opt/maven/bin:${PATH}"
 ENV MAVEN_HOME="/opt/maven"
+# symfony environment settings
+ENV PATH="$HOME/.symfony5/bin:$PATH"
 
 RUN \
   echo "**** install runtime dependencies ****" && \
