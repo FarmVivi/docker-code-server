@@ -49,6 +49,7 @@ RUN \
     php8.2-mbstring \
     php8.2-intl \
     php8.2-pdo \
+    php8.2-pdo-mysql \
     libapache2-mod-php8.2 && \
   echo "**** install composer ****" && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
