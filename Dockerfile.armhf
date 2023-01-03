@@ -33,7 +33,7 @@ RUN \
   mkdir -p /opt/maven && \
   curl -o \
     /tmp/apache-maven-bin.tar.gz -L \
-    "https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz" && \
+    "https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz" && \
   tar xf /tmp/apache-maven-bin.tar.gz -C \
     /opt/maven --strip-components=1 && \
   echo "**** install gradle ****" && \
