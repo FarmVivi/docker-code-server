@@ -44,7 +44,14 @@ RUN \
   apt-get install -y software-properties-common && \
   add-apt-repository -y ppa:ondrej/php && \
   apt-get update && \
-  apt-get install -y php8.2 libapache2-mod-php8.2 && \
+  apt-get install -y \
+    php8.2 \
+    php8.2-dom \
+    php8.2-xml \
+    php8.2-mbstring \
+    php8.2-intl \
+    php8.2-pdo \
+    libapache2-mod-php8.2 && \
   echo "**** install composer ****" && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
   echo "**** install symfony ****" && \
