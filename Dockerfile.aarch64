@@ -13,8 +13,6 @@ ENV HOME="/config"
 # maven environment settings
 ENV PATH="/opt/maven/bin:${PATH}"
 ENV MAVEN_HOME="/opt/maven"
-# symfony environment settings
-ENV PATH="$HOME/.symfony5/bin:$PATH"
 
 RUN \
   echo "**** install runtime dependencies ****" && \
@@ -56,6 +54,7 @@ RUN \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
   echo "**** install symfony ****" && \
   curl -sS https://get.symfony.com/cli/installer | bash && \
+  mv /config/.symfony5/bin/symfony /usr/local/bin/symfony && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
