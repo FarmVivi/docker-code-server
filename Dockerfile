@@ -42,7 +42,21 @@ RUN \
   apt-get install -y software-properties-common && \
   add-apt-repository -y ppa:ondrej/php && \
   apt-get update && \
-  apt-get install -y php8.1 libapache2-mod-php8.1 && \
+  apt-get install -y \
+    php8.2 \
+    php8.2-dom \
+    php8.2-xml \
+    php8.2-mbstring \
+    php8.2-intl \
+    php8.2-pdo \
+    php8.2-pdo-mysql \
+    php8.2-pdo-sqlite \
+    libapache2-mod-php8.2 && \
+  echo "**** install composer ****" && \
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+  echo "**** install symfony ****" && \
+  curl -sS https://get.symfony.com/cli/installer | bash && \
+  mv /config/.symfony5/bin/symfony /usr/local/bin/symfony && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
