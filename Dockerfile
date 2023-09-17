@@ -38,6 +38,8 @@ RUN \
     /opt/maven --strip-components=1 && \
   echo "**** install gradle ****" && \
   apt-get install -y gradle && \
+  echo "**** install python ****" && \
+  apt-get install -y python3 python3-pip && \
   echo "**** install php ****" && \
   apt-get install -y software-properties-common && \
   add-apt-repository -y ppa:ondrej/php && \
