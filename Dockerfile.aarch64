@@ -50,6 +50,8 @@ RUN \
   apt-get install -y gradle && \
   echo "**** install python ****" && \
   apt-get install -y python3 python3-pip && \
+  echo "**** install nodejs ****" && \
+  apt-get install -y nodejs npm && \
   echo "**** install php ****" && \
   apt-get install -y software-properties-common && \
   add-apt-repository -y ppa:ondrej/php && \
