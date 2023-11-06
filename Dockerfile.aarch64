@@ -50,8 +50,15 @@ RUN \
   apt-get install -y gradle && \
   echo "**** install python ****" && \
   apt-get install -y python3 python3-pip && \
+  echo "** Add nodesource official GPG key **" && \
+  curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+  echo "** Add the repository to Apt sources **" && \
+  echo \
+  "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | \
+  sudo tee /etc/apt/sources.list.d/nodesource.list > /dev/null && \
+  apt-get update && \
   echo "**** install nodejs ****" && \
-  apt-get install -y nodejs npm && \
+  apt-get install -y nodejs && \
   echo "**** install php ****" && \
   apt-get install -y software-properties-common && \
   add-apt-repository -y ppa:ondrej/php && \
