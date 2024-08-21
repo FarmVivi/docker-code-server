@@ -1,4 +1,6 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 
 # set version label
 ARG BUILD_DATE
@@ -19,11 +21,9 @@ RUN \
   apt-get update && \
   apt-get install -y \
     git \
-    jq \
     libatomic1 \
     nano \
     net-tools \
-    netcat \
     sudo && \
   echo "** Add Docker's official GPG key **" && \
   install -m 0755 -d /etc/apt/keyrings && \
@@ -89,6 +89,7 @@ RUN \
     "https://github.com/coder/code-server/releases/download/v${CODE_RELEASE}/code-server-${CODE_RELEASE}-linux-amd64.tar.gz" && \
   tar xf /tmp/code-server.tar.gz -C \
     /app/code-server --strip-components=1 && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** clean up ****" && \
   apt-get clean && \
   rm -rf \
